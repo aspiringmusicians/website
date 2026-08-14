@@ -2218,18 +2218,47 @@ button {
 
     /* Footer Mobile Optimization */
     .footer-pro {
-        padding: 48px 16px 32px 16px;
+        padding: 40px 20px 28px 20px;
     }
 
     .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 20px;
+    }
+
+    .footer-col.brand-col {
+        grid-column: 1 / -1;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 20px;
+    }
+
+    .footer-col:last-child {
+        grid-column: 1 / -1;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+    }
+
+    .footer-heading {
+        margin-bottom: 14px;
+        font-size: 0.82rem;
+        letter-spacing: 0.5px;
+    }
+
+    .footer-nav-list {
+        gap: 10px;
+    }
+
+    .footer-nav-list a {
+        font-size: 0.86rem;
     }
 
     .footer-bottom-bar {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        margin-top: 28px;
+        padding-top: 20px;
     }
 }
 
