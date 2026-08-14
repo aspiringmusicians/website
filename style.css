@@ -1792,12 +1792,16 @@ button {
     flex-shrink: 0;
 }
 
-/* Responsive Breakpoints */
+/* ==========================================================================
+   Responsive Breakpoints & Mobile Optimization (Desktop View Intact)
+   ========================================================================== */
+
+/* Tablet & Smaller Screens (max-width: 1024px) */
 @media (max-width: 1024px) {
     .hero-title { font-size: 2.8rem; }
     .hero-character-img { max-height: 480px; transform: scale(1.08) translateX(20px); }
     .hero-cutout-badge { bottom: 20px; left: -10px; }
-    .courses-display-grid { grid-template-columns: 1fr; }
+    .courses-display-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
     .about-grid-minimal, .community-card { grid-template-columns: 1fr; gap: 36px; }
     .header-social-row { display: none; }
@@ -1811,14 +1815,409 @@ button {
     .resource-spotlight-action .btn { width: 100%; }
 }
 
+/* Mobile Devices & Smartphones (max-width: 768px) */
 @media (max-width: 768px) {
-    .hero-container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-    .hero-content { align-items: center; padding-bottom: 0; }
-    .hero-actions, .hero-stats, .hero-social-bar { justify-content: center; }
-    .hero-title { font-size: 2.4rem; }
-    .hero-character-cutout-container { margin: 0 auto; justify-content: center; }
-    .hero-character-img { max-height: 380px; transform: scale(1) translateX(0); }
-    .hero-cutout-badge { bottom: 20px; left: 50%; transform: translateX(-50%); }
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom-bar { flex-direction: column; align-items: flex-start; }
+    /* Header / Navbar Mobile Optimization */
+    .navbar-container {
+        padding: 12px 16px;
+        gap: 16px;
+    }
+    
+    .nav-menu {
+        display: none !important;
+    }
+    
+    .header-actions .btn-outline {
+        display: none !important;
+    }
+    
+    .mobile-toggle {
+        display: flex !important;
+    }
+
+    .brand-name {
+        font-size: 1.05rem;
+    }
+
+    .brand-byline {
+        font-size: 0.6rem;
+    }
+
+    /* Hero Section Mobile Optimization */
+    .hero-section {
+        padding: 32px 16px 0px 16px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
+    }
+
+    .hero-content {
+        align-items: center;
+        padding-bottom: 0;
+    }
+
+    .hero-pill-badge {
+        margin-bottom: 16px;
+        font-size: 0.75rem;
+    }
+
+    .hero-title {
+        font-size: 2.1rem;
+        line-height: 1.16;
+        letter-spacing: -0.8px;
+        margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        padding: 13px 20px;
+        font-size: 0.92rem;
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: space-around;
+        gap: 12px;
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    .stat-number {
+        font-size: 1.15rem;
+    }
+
+    .stat-label {
+        font-size: 0.72rem;
+    }
+
+    .stat-divider {
+        height: 28px;
+    }
+
+    .hero-social-bar {
+        justify-content: center;
+        margin-top: 18px;
+    }
+
+    .hero-character-cutout-container {
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .hero-character-img {
+        max-height: 350px;
+        transform: scale(1) translateX(0);
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .hero-cutout-badge {
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        max-width: 92%;
+        padding: 8px 14px;
+    }
+
+    .badge-name {
+        font-size: 0.82rem;
+    }
+
+    .badge-role {
+        font-size: 0.68rem;
+    }
+
+    /* Sections & Cards Mobile Optimization */
+    .featured-course-section,
+    .mentorship-section-home,
+    .about-section-minimal,
+    .community-section,
+    .resources-spotlight-section {
+        padding: 50px 16px;
+    }
+
+    .featured-course-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .featured-course-header-row .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .section-title-minimal {
+        font-size: 1.75rem;
+        line-height: 1.25;
+        letter-spacing: -0.6px;
+    }
+
+    .split-feature-card {
+        grid-template-columns: 1fr;
+    }
+
+    .split-card-media-wrapper {
+        padding: 16px 16px 0 16px;
+    }
+
+    .split-card-media {
+        aspect-ratio: 16 / 9;
+        min-height: auto;
+    }
+
+    .split-card-content {
+        padding: 24px 18px;
+        align-items: flex-start;
+    }
+
+    .split-card-title {
+        font-size: 1.45rem;
+        line-height: 1.25;
+    }
+
+    .split-card-desc {
+        font-size: 0.88rem;
+        margin-bottom: 20px;
+    }
+
+    .split-card-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .split-card-footer .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .m-bullet-item {
+        font-size: 0.84rem;
+    }
+
+    /* Amazon Catalog & Sidebar Mobile */
+    .catalog-toolbar-section {
+        padding: 30px 16px 16px 16px;
+    }
+
+    .catalog-toolbar-section.page-top-padding {
+        padding-top: 40px;
+    }
+
+    .toolbar-search-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .search-box {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .custom-dropdown {
+        width: 100%;
+    }
+
+    .dropdown-trigger {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    .amazon-catalog-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .catalog-sidebar {
+        position: static;
+        padding: 18px 16px;
+        border-radius: var(--radius-md);
+        box-shadow: none;
+    }
+
+    .sidebar-heading {
+        font-size: 0.9rem;
+    }
+
+    .sidebar-filter-btn {
+        padding: 12px 14px;
+        font-size: 0.88rem;
+    }
+
+    .catalog-top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .courses-grid-section {
+        padding: 20px 16px 60px 16px;
+    }
+
+    .courses-display-grid,
+    .sidebar-grid-layout {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .sidebar-grid-layout .catalog-course-card,
+    .courses-display-grid.single-course-grid {
+        grid-template-columns: 1fr;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .course-card-body {
+        padding: 20px 16px;
+    }
+
+    .course-card-title {
+        font-size: 1.15rem;
+    }
+
+    .course-card-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .course-card-footer .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* About Section Profile Mobile */
+    .about-header-minimal {
+        margin-bottom: 36px;
+    }
+
+    .mentor-profile-card {
+        padding: 28px 18px;
+        max-width: 100%;
+    }
+
+    .profile-circle-avatar {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 18px;
+    }
+
+    .profile-name {
+        font-size: 1.3rem;
+    }
+
+    .profile-bio-snippet {
+        font-size: 0.88rem;
+    }
+
+    /* Community Section Mobile */
+    .community-card {
+        padding: 28px 18px;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        box-shadow: none;
+    }
+
+    .community-content h2 {
+        font-size: 1.55rem;
+    }
+
+    .community-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .community-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .community-contact-info {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+        width: 100%;
+    }
+
+    .contact-box {
+        width: 100%;
+    }
+
+    /* Footer Mobile Optimization */
+    .footer-pro {
+        padding: 48px 16px 32px 16px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+/* Small Smartphone Screen Sizing (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.85rem;
+        letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.88rem;
+    }
+
+    .stat-number {
+        font-size: 1.05rem;
+    }
+
+    .stat-label {
+        font-size: 0.68rem;
+    }
+
+    .section-title-minimal {
+        font-size: 1.55rem;
+    }
+
+    .split-card-title {
+        font-size: 1.3rem;
+    }
+
+    .current-price {
+        font-size: 1.3rem;
+    }
 }
