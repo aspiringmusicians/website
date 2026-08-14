@@ -306,12 +306,14 @@ button {
     background: var(--bg-main);
     border-left: 1px solid var(--border-color);
     z-index: 1000;
-    padding: 20px;
+    padding: 16px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 8px;
     transition: right 0.3s ease;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
 }
 
 .mobile-drawer.open {
@@ -322,8 +324,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
 }
 
 .drawer-close {
@@ -331,19 +332,41 @@ button {
     color: var(--text-secondary);
 }
 
+.drawer-social-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    padding: 8px 0 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.drawer-social-top a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.drawer-social-top a:hover {
+    transform: translateY(-1px);
+}
+
 .drawer-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
+    gap: 2px;
+    margin-top: 4px;
 }
 
 .drawer-link {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-secondary);
-    padding: 10px 12px;
+    padding: 8px 10px;
     border-radius: var(--radius-sm);
+    display: block;
 }
 
 .drawer-link:hover,
@@ -353,22 +376,12 @@ button {
     font-weight: 600;
 }
 
-.drawer-social-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    padding: 16px 0;
-    border-top: 1px solid var(--border-color);
-}
-
 .drawer-footer {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding-top: 16px;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
     border-top: 1px solid var(--border-color);
 }
 
