@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspiring Musicians — By Kunal Goel</title>
+    <meta name="description" content="Official platform for independent musicians, beatmakers, and producers. Master music production in Hinglish with Kunal Goel.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=15">
+</head>
+<body class="minimal-light">
+
+    <!-- MAIN NAVIGATION HEADER -->
+    <header class="navbar-header" id="navbarHeader">
+        <div class="navbar-container">
+            
+            <!-- Logo with Animated Audio Spectrum Soundwave -->
+            <a href="/" class="brand-logo" title="Aspiring Musicians Homepage">
+                <div class="logo-mark animated-wave">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect class="wave-bar bar-1" x="3" y="10" width="2.5" height="4" rx="1.2" fill="#0F172A"/>
+                        <rect class="wave-bar bar-2" x="8" y="6" width="2.5" height="12" rx="1.2" fill="#0F172A"/>
+                        <rect class="wave-bar bar-3" x="13" y="3" width="2.5" height="18" rx="1.2" fill="#0F172A"/>
+                        <rect class="wave-bar bar-4" x="18" y="7" width="2.5" height="10" rx="1.2" fill="#0F172A"/>
+                    </svg>
+                </div>
+                <div class="brand-text-group">
+                    <span class="brand-name">Aspiring Musicians</span>
+                    <span class="brand-byline">By Kunal Goel</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/" class="nav-link active" data-nav="home">Home</a></li>
+                    <li class="nav-item"><a href="/courses.html" class="nav-link" data-nav="featured">Courses</a></li>
+                    <li class="nav-item"><a href="/shop.html" class="nav-link" data-nav="shop">Shop</a></li>
+                    <li class="nav-item"><a href="https://superprofile.bio/bookings/aspiringmusicians?sessionId=6a6f341c4c5b8300133c3c03" target="_blank" rel="noopener" class="nav-link" data-nav="mentorship">1:1 Mentorship</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link" data-nav="about">About</a></li>
+                    <li class="nav-item"><a href="#community" class="nav-link" data-nav="community">Community</a></li>
+                </ul>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="header-actions">
+                <div class="header-social-row">
+                    <a href="https://youtube.com/@producedbykunal" target="_blank" rel="noopener" class="header-social-icon" title="Watch Free Lessons on YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://open.spotify.com" target="_blank" rel="noopener" class="header-social-icon" title="Listen on Spotify"><i class="fa-brands fa-spotify"></i></a>
+                    <a href="https://www.instagram.com/producedbykunal" target="_blank" rel="noopener" class="header-social-icon" title="Follow @producedbykunal on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+
+                <a href="https://superprofile.bio/store/aspiringmusicians/signin" target="_blank" rel="noopener" class="btn btn-dark">Sign In</a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- MOBILE DRAWER OVERLAY -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <div class="brand-text-group">
+                <span class="brand-name">Aspiring Musicians</span>
+                <span class="brand-byline">By Kunal Goel</span>
+            </div>
+            <button class="drawer-close" id="closeDrawer"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="drawer-list">
+            <li><a href="/" class="drawer-link active">Home</a></li>
+            <li><a href="/courses.html" class="drawer-link">Courses</a></li>
+            <li><a href="/shop.html" class="drawer-link">Shop</a></li>
+            <li><a href="https://superprofile.bio/bookings/aspiringmusicians?sessionId=6a6f341c4c5b8300133c3c03" target="_blank" rel="noopener" class="drawer-link">1:1 Mentorship</a></li>
+            <li><a href="#about" class="drawer-link">About</a></li>
+            <li><a href="#community" class="drawer-link">Community</a></li>
+        </ul>
+        <div class="drawer-social-footer">
+            <a href="https://youtube.com/@producedbykunal" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://open.spotify.com" target="_blank" rel="noopener"><i class="fa-brands fa-spotify"></i></a>
+            <a href="https://www.instagram.com/producedbykunal" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="drawer-footer">
+            <a href="https://superprofile.bio/store/aspiringmusicians/signin" target="_blank" rel="noopener" class="btn btn-dark w-full">Sign In</a>
+        </div>
+    </div>
+
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            
+            <!-- Left Hero Column: Text & CTAs -->
+            <div class="hero-content reveal-on-scroll">
+                <div class="hero-pill-badge">
+                    <span class="pulse-dot"></span>
+                    <span>Music Production Education Platform</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Simplifying the journey for <span class="highlight-text">aspiring musicians.</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    The world’s most accessible ecosystem to learn music production, mixing, and mastering. High quality, step by step Hinglish guidance built for every artist with zero expensive studio gear required.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="/courses.html" class="btn btn-dark btn-lg btn-glow">
+                        <span>Explore Courses</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="https://t.me/+zEgSM4P5UtwzZGJl" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+                        <i class="fa-brands fa-telegram"></i>
+                        <span>Join Telegram Community</span>
+                    </a>
+                </div>
+
+                <!-- Live Ecosystem Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Accessible</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">Zero</span>
+                        <span class="stat-label">Gear Barrier</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">Hinglish</span>
+                        <span class="stat-label">Step by Step</span>
+                    </div>
+                </div>
+
+                <!-- Quick Social Handles Bar -->
+                <div class="hero-social-bar">
+                    <span class="social-bar-label">Follow Mentor:</span>
+                    <a href="https://youtube.com/@producedbykunal" target="_blank" rel="noopener" class="social-chip">
+                        <i class="fa-brands fa-youtube youtube-red"></i>
+                        <span>@producedbykunal</span>
+                    </a>
+                    <a href="https://www.instagram.com/producedbykunal" target="_blank" rel="noopener" class="social-chip">
+                        <i class="fa-brands fa-instagram insta-purple"></i>
+                        <span>@producedbykunal</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Hero Visual Column: Kunal Studio Portrait Cutout -->
+            <div class="hero-visual reveal-on-scroll reveal-delay-1">
+                <div class="hero-character-cutout-container">
+                    <img src="Assets/Kunal New Cutout.png" alt="Kunal Goel — Music Producer & Mentor" class="hero-character-img">
+
+                    <!-- Floating Glassmorphism Mentor Badge Box -->
+                    <a href="https://www.instagram.com/producedbykunal" target="_blank" rel="noopener" class="hero-cutout-badge">
+                        <div class="badge-avatar">
+                            <img src="Assets/Kunal Studio Laptop Speakers.jpg" alt="Kunal Goel — Music Producer & Mentor">
+                        </div>
+                        <div class="badge-text">
+                            <span class="badge-name">Kunal Goel</span>
+                            <span class="badge-role">Founder @producedbykunal</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: FLAGSHIP COURSES SHOWCASE -->
+    <section class="featured-course-section" id="featured">
+        <div class="featured-course-container">
+            <div class="featured-course-header-row reveal-on-scroll">
+                <div class="header-text-group">
+                    <span class="section-tag-minimal"><i class="fa-solid fa-star text-gold"></i> FLAGSHIP COURSES</span>
+                    <h2 class="section-title-minimal">Start Learning Music Production Today</h2>
+                </div>
+                <a href="/courses.html" class="btn btn-dark">
+                    <span>View All Courses</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Full Widescreen 2-Column Split Card (1140px, Zero Side Space) -->
+            <div class="split-feature-card reveal-on-scroll reveal-delay-1">
+                
+                <!-- Left Column: Framed 16:9 Cover Image -->
+                <div class="split-card-media-wrapper">
+                    <div class="split-card-media">
+                        <img src="Assets/FL Studio Mobile Zero to Pro Course Cover.jpg" alt="FL Studio Mobile Zero to Pro Masterclass" class="split-media-img">
+                    </div>
+                </div>
+
+                <!-- Right Column: Course Details & Action -->
+                <div class="split-card-content">
+                    <div class="course-meta-row">
+                        <span class="meta-tag"><i class="fa-solid fa-mobile-screen"></i> FL Studio Mobile</span>
+                        <span class="meta-tag"><i class="fa-solid fa-language"></i> Hinglish</span>
+                        <span class="meta-tag"><i class="fa-solid fa-clock"></i> Lifetime Access</span>
+                    </div>
+
+                    <h3 class="split-card-title">FL Studio Mobile Zero to Pro</h3>
+                    <p class="split-card-desc">
+                        Comprehensive step by step masterclass teaching music theory, beat making, vocal processing, chord progression creation, and song arrangement on mobile devices.
+                    </p>
+
+                    <div class="course-features-list">
+                        <div class="feature-item highlight-feature"><i class="fa-solid fa-circle-check"></i> <span>Lessons 1 & 2 100% Free Preview Available</span></div>
+                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>5 Page Ultimate Music Theory PDF Cheat Sheet Included</span></div>
+                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>Zero Expensive Studio Gear Required</span></div>
+                    </div>
+
+                    <div class="split-card-footer">
+                        <div class="price-group">
+                            <span class="original-price">₹499</span>
+                            <span class="current-price">₹199</span>
+                        </div>
+                        <a href="https://superprofile.bio/course/flstudiomobilezerotopro" target="_blank" rel="noopener" class="btn btn-dark btn-lg">
+                            <span>Get Course & Free Preview</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2.5: FEATURED PRODUCER PACK SHOWCASE -->
+    <section class="featured-course-section" id="presets-pack" style="border-top: 1px solid var(--border-color); background-color: var(--bg-subtle);">
+        <div class="featured-course-container">
+            <div class="featured-course-header-row reveal-on-scroll">
+                <div class="header-text-group">
+                    <span class="section-tag-minimal"><i class="fa-solid fa-sliders"></i> FEATURED PRODUCER PACK</span>
+                    <h2 class="section-title-minimal">FL Studio Stock Plugins Presets Pack</h2>
+                </div>
+                <a href="/shop.html" class="btn btn-dark">
+                    <span>Explore Producer Shop</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Full Widescreen 2-Column Split Card (1140px, Zero Side Space) -->
+            <div class="split-feature-card reveal-on-scroll reveal-delay-1">
+                
+                <!-- Left Column: Framed 16:9 Cover Image -->
+                <div class="split-card-media-wrapper">
+                    <div class="split-card-media">
+                        <img src="Assets/FL Studio Premium Presets Pack Cover.jpg" alt="FL Studio Premium Presets Pack (500+ Stock Plugins Presets)" class="split-media-img">
+                    </div>
+                </div>
+
+                <!-- Right Column: Product Details & Action -->
+                <div class="split-card-content">
+                    <div class="course-meta-row">
+                        <span class="meta-tag"><i class="fa-solid fa-sliders"></i> FL Studio Stock</span>
+                        <span class="meta-tag"><i class="fa-solid fa-microphone-lines"></i> Vocal & Master</span>
+                        <span class="meta-tag"><i class="fa-solid fa-bolt"></i> Instant Download</span>
+                    </div>
+
+                    <h3 class="split-card-title">FL Studio Premium Presets Pack</h3>
+                    <p class="split-card-desc">
+                        500+ instant drag and drop channel strip presets for lead vocals, adlibs, background vocals, and mastering. 100% stock plugins only, zero expensive third party VSTs required.
+                    </p>
+
+                    <div class="course-features-list">
+                        <div class="feature-item highlight-feature"><i class="fa-solid fa-circle-check"></i> <span>Lead & Background Vocal Mixing Chains</span></div>
+                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>Loud & Dynamic Streaming Master Chains</span></div>
+                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>100% Stock FL Studio Plugins Only</span></div>
+                    </div>
+
+                    <div class="split-card-footer">
+                        <div class="price-group">
+                            <span class="original-price">₹999</span>
+                            <span class="current-price">₹199</span>
+                        </div>
+                        <a href="https://superprofile.bio/vp/flstudiopremiumpresetspack" target="_blank" rel="noopener" class="btn btn-dark btn-lg">
+                            <span>Get Presets Pack</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: DEDICATED 1:1 MENTORSHIP SHOWCASE -->
+    <section class="mentorship-section-home" id="mentorship">
+        <div class="mentorship-container-home">
+            
+            <div class="mentorship-section-header reveal-on-scroll">
+                <span class="section-tag-minimal"><i class="fa-solid fa-video"></i> PRIVATE MENTORSHIP</span>
+                <h2 class="section-title-minimal">Work 1 on 1 Live with Kunal Goel</h2>
+            </div>
+
+            <!-- Full Widescreen 2-Column Split Card (1140px, Zero Side Space) -->
+            <div class="split-feature-card reveal-on-scroll reveal-delay-1">
+                
+                <!-- Left Column: Framed 16:9 Mentorship Cover Image -->
+                <div class="split-card-media-wrapper">
+                    <div class="split-card-media">
+                        <img src="Assets/Kunal Mentorship Session Cover.jpg" alt="1:1 Music Production & Mixing Mentorship with Kunal Goel" class="split-media-img">
+                    </div>
+                </div>
+
+                <!-- Right Column: Mentorship Details & Action -->
+                <div class="split-card-content">
+                    <div class="mentorship-meta-row">
+                        <span class="mentorship-badge"><i class="fa-solid fa-video"></i> LIVE 1 ON 1 ZOOM MEETING</span>
+                    </div>
+
+                    <h3 class="split-card-title">1:1 Music Production & Mixing Mentorship</h3>
+                    <p class="split-card-desc">
+                        Get personalized track feedback, mix breakdowns, DAW guidance, or career advice in a live 1 on 1 Zoom meeting with Kunal Goel!
+                    </p>
+
+                    <div class="mentorship-bullets-list">
+                        <div class="m-bullet-item"><i class="fa-solid fa-circle-check"></i> <span>Track & Mix Feedback (Bring your audio or session)</span></div>
+                        <div class="m-bullet-item"><i class="fa-solid fa-circle-check"></i> <span>Vocal Mixing & Tuning breakdown (Logic Pro, FL Studio, BandLab)</span></div>
+                        <div class="m-bullet-item"><i class="fa-solid fa-circle-check"></i> <span>Music Production, Beats & Arrangement tips</span></div>
+                        <div class="m-bullet-item"><i class="fa-solid fa-circle-check"></i> <span>Gear, Acoustic Treatment & Studio Setup advice</span></div>
+                        <div class="m-bullet-item"><i class="fa-solid fa-circle-check"></i> <span>Music Career & Monetization guidance for independent artists</span></div>
+                    </div>
+
+                    <div class="split-card-footer">
+                        <a href="https://superprofile.bio/bookings/aspiringmusicians?sessionId=6a6f341c4c5b8300133c3c03" target="_blank" rel="noopener" class="btn btn-dark btn-lg btn-glow w-full">
+                            <span>Book 1:1 Zoom Session</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: ABOUT & MENTOR PROFILE SECTION -->
+    <section class="about-section-minimal" id="about">
+        <div class="about-container-minimal">
+            
+            <!-- Section Header -->
+            <div class="about-header-minimal reveal-on-scroll">
+                <span class="section-tag-minimal">OUR MISSION</span>
+                <h2 class="section-title-minimal">Built for musicians who want to create without boundaries.</h2>
+                <p class="section-desc-minimal">
+                    Aspiring Musicians is a creator community founded to break down the barriers of music education. 
+                    We believe great music comes from knowledge, passion, and practice, not expensive studio setups.
+                </p>
+            </div>
+
+            <!-- 2-Column Split Layout: Circular Profile Card (Left) & Philosophy/Values (Right) -->
+            <div class="about-grid-minimal">
+                
+                <!-- Left: Circular Mentor Profile Card -->
+                <div class="about-visual-frame reveal-on-scroll reveal-delay-1">
+                    <div class="mentor-profile-card">
+                        
+                        <!-- Circular Image Wrapper -->
+                        <div class="profile-circle-avatar">
+                            <img src="Assets/Kunal Studio Laptop Speakers.jpg" alt="Kunal Goel — Music Producer & Mentor" class="profile-circle-img">
+                        </div>
+
+                        <!-- Mentor Information Below Circle -->
+                        <div class="profile-info-group">
+                            <h3 class="profile-name">Kunal Goel</h3>
+                            <span class="profile-title">Founder & Music Producer</span>
+                            <a href="https://www.instagram.com/producedbykunal" target="_blank" rel="noopener" class="profile-handle">@producedbykunal</a>
+                            
+                            <p class="profile-bio-snippet">
+                                Music producer & mixing engineer dedicated to helping independent creators produce radio-ready tracks on budget gear.
+                            </p>
+
+                            <!-- Social Ecosystem Quick Chips -->
+                            <div class="profile-social-pills">
+                                <a href="https://youtube.com/@producedbykunal" target="_blank" rel="noopener" class="eco-chip" title="YouTube">
+                                    <i class="fa-brands fa-youtube youtube-red"></i>
+                                    <span>Free Lessons</span>
+                                </a>
+                                <a href="https://open.spotify.com" target="_blank" rel="noopener" class="eco-chip" title="Spotify">
+                                    <i class="fa-brands fa-spotify spotify-green"></i>
+                                    <span>Stream Songs</span>
+                                </a>
+                                <a href="https://www.instagram.com/producedbykunal" target="_blank" rel="noopener" class="eco-chip" title="Instagram">
+                                    <i class="fa-brands fa-instagram insta-purple"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Content: Philosophy & Core Values -->
+                <div class="about-details-minimal reveal-on-scroll reveal-delay-2">
+                    
+                    <!-- Story Block 1: Our Philosophy -->
+                    <div class="minimal-story-block">
+                        <div class="block-label">
+                            <span class="block-dot"></span>
+                            <span>Our Philosophy</span>
+                        </div>
+                        <p class="block-text">
+                            Most music production tutorials assume you have thousands of dollars for expensive microphones, acoustic treatment, and premium plugins. 
+                            We do things differently. Every course, preset, and guide at Aspiring Musicians is crafted to deliver professional, radio-ready results using basic gear you already own.
+                        </p>
+                    </div>
+
+                    <!-- Story Block 2: Relatable Guidance -->
+                    <div class="minimal-story-block">
+                        <div class="block-label">
+                            <span class="block-dot"></span>
+                            <span>Relatable Guidance</span>
+                        </div>
+                        <p class="block-text">
+                            Kunal teaches step by step in relatable Hinglish, giving aspiring artists honest, practical advice without technical jargon or fluff.
+                        </p>
+                    </div>
+
+                    <!-- Minimalist Value Check Bullets -->
+                    <div class="minimal-value-list">
+                        <div class="value-chip">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Affordable quality education for all artists</span>
+                        </div>
+                        <div class="value-chip">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Mobile & low budget production focus</span>
+                        </div>
+                        <div class="value-chip">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Direct support & active Telegram community</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 6: COMMUNITY SECTION (DEDICATED TELEGRAM SECTION) -->
+    <section class="community-section" id="community">
+        <div class="community-container">
+            
+            <div class="community-card reveal-on-scroll">
+                <div class="community-content">
+                    <span class="community-tag"><i class="fa-brands fa-telegram"></i> JOIN THE MOVEMENT</span>
+                    <h2>Join 5,000+ Aspiring Musicians</h2>
+                    <p>
+                        Get instant feedback on your songs, collaborate with fellow producers, access free sample packs, 
+                        and learn directly alongside Kunal in our official Telegram community.
+                    </p>
+
+                    <div class="community-actions">
+                        <a href="https://t.me/+zEgSM4P5UtwzZGJl" target="_blank" rel="noopener" class="btn btn-dark btn-lg">
+                            <i class="fa-brands fa-telegram"></i>
+                            <span>Join Telegram Group</span>
+                        </a>
+                        <a href="mailto:aspiringmusicians.in@gmail.com" class="btn btn-outline btn-lg">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Email Support</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="community-contact-info">
+                    <a href="mailto:aspiringmusicians.in@gmail.com" class="contact-box">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <span class="contact-label">Direct Email Support</span>
+                            <span class="contact-val">aspiringmusicians.in@gmail.com</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/aspiringmusicians.in" target="_blank" rel="noopener" class="contact-box">
+                        <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+                        <div class="contact-details">
+                            <span class="contact-label">Instagram Community</span>
+                            <span class="contact-val">@aspiringmusicians.in</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: REDESIGNED HIGH END MINIMALIST FOOTER -->
+    <footer class="footer-pro">
+        <div class="footer-pro-container">
+            
+            <!-- Top Footer 4 Column Grid -->
+            <div class="footer-grid">
+                
+                <!-- Col 1: Brand & Byline -->
+                <div class="footer-col brand-col">
+                    <a href="/" class="brand-logo footer-logo">
+                        <div class="logo-mark animated-wave">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect class="wave-bar bar-1" x="3" y="10" width="2.5" height="4" rx="1.2" fill="#0F172A"/>
+                                <rect class="wave-bar bar-2" x="8" y="6" width="2.5" height="12" rx="1.2" fill="#0F172A"/>
+                                <rect class="wave-bar bar-3" x="13" y="3" width="2.5" height="18" rx="1.2" fill="#0F172A"/>
+                                <rect class="wave-bar bar-4" x="18" y="7" width="2.5" height="10" rx="1.2" fill="#0F172A"/>
+                            </svg>
+                        </div>
+                        <div class="brand-text-group">
+                            <span class="brand-name">Aspiring Musicians</span>
+                            <span class="brand-byline">By Kunal Goel</span>
+                        </div>
+                    </a>
+
+                    <p class="footer-tagline">
+                        Simplifying music production for independent creators. High quality education made accessible for every artist.
+                    </p>
+
+                    <div class="system-status-chip">
+                        <span class="status-dot"></span>
+                        <span>All Community Systems Active</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/courses.html">Courses</a></li>
+                        <li><a href="/shop.html">Shop</a></li>
+                        <li><a href="https://superprofile.bio/bookings/aspiringmusicians?sessionId=6a6f341c4c5b8300133c3c03" target="_blank" rel="noopener">1:1 Mentorship</a></li>
+                        <li><a href="#about">About Community</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Ecosystem & Music -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Connect & Listen</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="https://youtube.com/@producedbykunal" target="_blank" rel="noopener"><i class="fa-brands fa-youtube youtube-red"></i> YouTube Channel</a></li>
+                        <li><a href="https://open.spotify.com" target="_blank" rel="noopener"><i class="fa-brands fa-spotify spotify-green"></i> Spotify Discography</a></li>
+                        <li><a href="https://www.instagram.com/aspiringmusicians.in" target="_blank" rel="noopener"><i class="fa-brands fa-instagram insta-purple"></i> @aspiringmusicians.in</a></li>
+                        <li><a href="https://www.instagram.com/producedbykunal" target="_blank" rel="noopener"><i class="fa-brands fa-instagram insta-purple"></i> @producedbykunal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Direct Support -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Direct Help</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:aspiringmusicians.in@gmail.com">aspiringmusicians.in@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-brands fa-telegram"></i>
+                            <a href="https://t.me/+zEgSM4P5UtwzZGJl" target="_blank" rel="noopener">Official Telegram Group</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom-bar">
+                <div class="copyright-text">
+                    &copy; 2026 Aspiring Musicians. Founded & Managed by <strong>Kunal Goel</strong>.
+                </div>
+                <div class="footer-bottom-right">
+                    <span>Built with Passion & Purpose</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
