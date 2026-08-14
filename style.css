@@ -2228,14 +2228,41 @@ button {
 
     .footer-col.brand-col {
         grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 20px;
+        padding-bottom: 24px;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .footer-tagline {
+        text-align: center;
+        max-width: 92%;
+        margin: 12px auto 16px auto;
+    }
+
+    .system-status-chip {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .footer-col:last-child {
         grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 20px;
+        padding-top: 24px;
+    }
+
+    .footer-contact-list {
+        align-items: center;
     }
 
     .footer-heading {
