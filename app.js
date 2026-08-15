@@ -497,4 +497,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 7. Enforce 100% Reliable 1:1 Mentorship Superprofile Booking Link across Mobile & Desktop
+    const MENTORSHIP_BOOKING_URL = 'https://superprofile.bio/bookings/aspiringmusicians?sessionId=6a6f341c4c5b8300133c3c03';
+    
+    document.querySelectorAll('a[href*="bookings/aspiringmusicians"]').forEach(link => {
+        link.setAttribute('href', MENTORSHIP_BOOKING_URL);
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(MENTORSHIP_BOOKING_URL, '_blank', 'noopener,noreferrer');
+        });
+    });
+
 });
