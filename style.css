@@ -2562,21 +2562,52 @@ button {
         font-size: 0.88rem;
     }
 
-    /* Community Section Mobile */
+    /* Community Section Mobile Optimization */
     .community-card {
-        padding: 28px 18px;
+        padding: 32px 20px;
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 28px;
+        text-align: center;
         box-shadow: none;
     }
 
+    .community-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .community-tag {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto 12px auto;
+        text-align: center;
+    }
+
     .community-content h2 {
-        font-size: 1.55rem;
+        font-size: 1.65rem;
+        text-align: center;
+        margin: 0 auto 14px auto;
+        width: 100%;
+        line-height: 1.25;
+    }
+
+    .community-content p {
+        text-align: center;
+        margin: 0 auto 24px auto;
+        max-width: 100%;
     }
 
     .community-actions {
+        display: flex;
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
         gap: 12px;
     }
 
@@ -2586,15 +2617,21 @@ button {
     }
 
     .community-contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
         padding-left: 0;
         border-left: none;
         border-top: 1px solid var(--border-color);
-        padding-top: 20px;
-        width: 100%;
+        padding-top: 24px;
+        gap: 14px;
     }
 
     .contact-box {
         width: 100%;
+        justify-content: flex-start;
+        text-align: left;
     }
 
     /* Footer Mobile Optimization */
