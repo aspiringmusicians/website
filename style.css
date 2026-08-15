@@ -2313,7 +2313,7 @@ button {
     .youtube-card {
         grid-template-columns: 1fr;
         padding: 32px 20px;
-        gap: 32px;
+        gap: 28px;
         text-align: center;
     }
 
@@ -2322,35 +2322,55 @@ button {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        width: 100%;
     }
 
     .youtube-tag {
+        display: flex;
         justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto 12px auto;
+        text-align: center;
     }
 
     .youtube-title {
-        font-size: 1.75rem;
+        font-size: 1.65rem;
         text-align: center;
+        margin: 0 auto 16px auto;
+        width: 100%;
+        line-height: 1.25;
     }
 
     .youtube-desc {
         text-align: center;
+        margin: 0 auto 24px auto;
+        max-width: 100%;
     }
 
     .youtube-badges-row {
-        align-items: center;
-        text-align: center;
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: fit-content;
+        margin: 0 auto 28px auto;
+        gap: 12px;
+        text-align: left;
     }
 
     .yt-badge-chip {
-        justify-content: center;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        width: 100%;
     }
 
     .youtube-actions {
+        display: flex;
         justify-content: center;
         width: 100%;
+        margin: 0 auto;
     }
 
     .youtube-actions .btn {
