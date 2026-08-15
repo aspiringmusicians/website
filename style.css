@@ -1647,9 +1647,91 @@ button {
     transition: var(--transition);
 }
 
-.youtube-preview-box:hover .visit-btn {
-    background-color: #FF0000;
+/* PRODUCER PACKS HOMEPAGE CAROUSEL */
+.producer-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.producer-carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+    border-radius: var(--radius-lg);
+}
+
+.producer-carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    width: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: var(--transition);
+}
+
+.carousel-arrow:hover {
+    background-color: var(--text-primary);
     color: #FFFFFF;
+    border-color: var(--text-primary);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-arrow-left {
+    left: -24px;
+}
+
+.carousel-arrow-right {
+    right: -24px;
+}
+
+.carousel-dots-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--border-dark);
+    opacity: 0.3;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+}
+
+.carousel-dot.active {
+    width: 32px;
+    border-radius: 12px;
+    background-color: var(--text-primary);
+    opacity: 1;
 }
 
 /* COMMUNITY SECTION */
@@ -2191,6 +2273,10 @@ button {
     .community-section,
     .resources-spotlight-section {
         padding: 50px 16px;
+    }
+
+    .carousel-arrow {
+        display: none;
     }
 
     .youtube-card {

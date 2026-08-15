@@ -312,4 +312,115 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Filter Evaluation on Page Load
     filterAndSortCourses();
 
+    // 6. Producer Packs Interactive Auto-Scrolling Carousel Engine
+    const producerCarouselWrapper = document.getElementById('producerCarouselWrapper');
+    const producerCarouselTrack = document.getElementById('producerCarouselTrack');
+    const carouselPrevBtn = document.getElementById('carouselPrevBtn');
+    const carouselNextBtn = document.getElementById('carouselNextBtn');
+    const carouselDotsWrapper = document.getElementById('carouselDotsWrapper');
+
+    if (producerCarouselWrapper && producerCarouselTrack) {
+        const slides = Array.from(producerCarouselTrack.querySelectorAll('.carousel-slide'));
+        const totalSlides = slides.length;
+
+        if (totalSlides > 0) {
+            // Random Initial Product Selection on Refresh
+            let currentSlideIndex = Math.floor(Math.random() * totalSlides);
+            let autoScrollTimer = null;
+
+            // Generate Pagination Dots
+            if (carouselDotsWrapper) {
+                carouselDotsWrapper.innerHTML = '';
+                slides.forEach((_, idx) => {
+                    const dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.className = `carousel-dot ${idx === currentSlideIndex ? 'active' : ''}`;
+                    dot.setAttribute('aria-label', `Go to product ${idx + 1}`);
+                    dot.addEventListener('click', () => goToSlide(idx));
+                    carouselDotsWrapper.appendChild(dot);
+                });
+            }
+
+            function updateSlidePosition() {
+                producerCarouselTrack.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+                if (carouselDotsWrapper) {
+                    const dots = carouselDotsWrapper.querySelectorAll('.carousel-dot');
+                    dots.forEach((dot, idx) => {
+                        if (idx === currentSlideIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+            }
+
+            function goToSlide(index) {
+                currentSlideIndex = (index + totalSlides) % totalSlides;
+                updateSlidePosition();
+            }
+
+            function nextSlide() {
+                goToSlide(currentSlideIndex + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentSlideIndex - 1);
+            }
+
+            if (carouselPrevBtn) carouselPrevBtn.addEventListener('click', prevSlide);
+            if (carouselNextBtn) carouselNextBtn.addEventListener('click', nextSlide);
+
+            // Auto-Scroll (Every 5 seconds)
+            function startAutoScroll() {
+                stopAutoScroll();
+                autoScrollTimer = setInterval(nextSlide, 5000);
+            }
+
+            function stopAutoScroll() {
+                if (autoScrollTimer) {
+                    clearInterval(autoScrollTimer);
+                    autoScrollTimer = null;
+                }
+            }
+
+            producerCarouselWrapper.addEventListener('mouseenter', stopAutoScroll);
+            producerCarouselWrapper.addEventListener('mouseleave', startAutoScroll);
+
+            // Mobile Touch Swipe Support
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+
+            producerCarouselTrack.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                stopAutoScroll();
+            }, { passive: true });
+
+            producerCarouselTrack.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+            }, { passive: true });
+
+            producerCarouselTrack.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                const diffX = startX - currentX;
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+                startAutoScroll();
+            });
+
+            // Initialize Position & Start Auto Scroll
+            updateSlidePosition();
+            startAutoScroll();
+        }
+    }
+
 });

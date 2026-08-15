@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=25">
+    <link rel="stylesheet" href="style.css?v=26">
 </head>
 <body class="minimal-light">
 
@@ -256,89 +256,116 @@
                 </a>
             </div>
 
-            <!-- Full Widescreen 2-Column Split Card 1: FL Studio -->
-            <div class="split-feature-card reveal-on-scroll reveal-delay-1" style="margin-bottom: 32px;">
+            <!-- PRODUCER PACKS INTERACTIVE CAROUSEL -->
+            <div class="producer-carousel-wrapper reveal-on-scroll" id="producerCarouselWrapper">
                 
-                <!-- Left Column: Framed 16:9 Cover Image -->
-                <div class="split-card-media-wrapper">
-                    <div class="split-card-media">
-                        <img src="Assets/FL Studio Premium Presets Pack Cover.jpg" alt="FL Studio Premium Presets Pack (500+ Stock Plugins Presets)" class="split-media-img">
-                    </div>
-                </div>
+                <!-- Left & Right Arrow Navigation Controls -->
+                <button type="button" class="carousel-arrow carousel-arrow-left" id="carouselPrevBtn" aria-label="Previous Slide">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button type="button" class="carousel-arrow carousel-arrow-right" id="carouselNextBtn" aria-label="Next Slide">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
 
-                <!-- Right Column: Product Details & Action -->
-                <div class="split-card-content">
-                    <div class="course-meta-row">
-                        <span class="meta-tag"><i class="fa-solid fa-sliders"></i> FL Studio</span>
-                        <span class="meta-tag"><i class="fa-solid fa-microphone-lines"></i> Vocal & Master</span>
-                        <span class="meta-tag"><i class="fa-solid fa-bolt"></i> Instant Download</span>
-                    </div>
+                <!-- Track Container -->
+                <div class="producer-carousel-track-container" id="carouselTrackContainer">
+                    <div class="producer-carousel-track" id="producerCarouselTrack">
+                        
+                        <!-- Slide 1: FL Studio Premium Presets Pack -->
+                        <div class="carousel-slide" data-slide-index="0">
+                            <div class="split-feature-card">
+                                
+                                <!-- Left Column: Framed 16:9 Cover Image -->
+                                <div class="split-card-media-wrapper">
+                                    <div class="split-card-media">
+                                        <img src="Assets/FL Studio Premium Presets Pack Cover.jpg" alt="FL Studio Premium Presets Pack (500+ Stock Plugins Presets)" class="split-media-img">
+                                    </div>
+                                </div>
 
-                    <h3 class="split-card-title">FL Studio Premium Presets Pack</h3>
-                    <p class="split-card-desc">
-                        500+ instant drag and drop channel strip presets for lead vocals, adlibs, background vocals, and mastering. 100% stock plugins only, zero expensive third party VSTs required.
-                    </p>
+                                <!-- Right Column: Product Details & Action -->
+                                <div class="split-card-content">
+                                    <div class="course-meta-row">
+                                        <span class="meta-tag"><i class="fa-solid fa-sliders"></i> FL Studio</span>
+                                        <span class="meta-tag"><i class="fa-solid fa-microphone-lines"></i> Vocal & Master</span>
+                                        <span class="meta-tag"><i class="fa-solid fa-bolt"></i> Instant Download</span>
+                                    </div>
 
-                    <div class="course-features-list">
-                        <div class="feature-item highlight-feature"><i class="fa-solid fa-circle-check"></i> <span>Lead & Background Vocal Mixing Chains</span></div>
-                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>Loud & Dynamic Streaming Master Chains</span></div>
-                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>100% Stock FL Studio Plugins Only</span></div>
-                    </div>
+                                    <h3 class="split-card-title">FL Studio Premium Presets Pack</h3>
+                                    <p class="split-card-desc">
+                                        500+ instant drag and drop channel strip presets for lead vocals, adlibs, background vocals, and mastering. 100% stock plugins only, zero expensive third party VSTs required.
+                                    </p>
 
-                    <div class="split-card-footer">
-                        <div class="price-group">
-                            <span class="original-price">₹999</span>
-                            <span class="current-price">₹199</span>
+                                    <div class="course-features-list">
+                                        <div class="feature-item highlight-feature"><i class="fa-solid fa-circle-check"></i> <span>Lead & Background Vocal Mixing Chains</span></div>
+                                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>Loud & Dynamic Streaming Master Chains</span></div>
+                                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>100% Stock FL Studio Plugins Only</span></div>
+                                    </div>
+
+                                    <div class="split-card-footer">
+                                        <div class="price-group">
+                                            <span class="original-price">₹999</span>
+                                            <span class="current-price">₹199</span>
+                                        </div>
+                                        <a href="https://superprofile.bio/vp/flstudiopremiumpresetspack" target="_blank" rel="noopener" class="btn btn-dark btn-lg">
+                                            <span>Get Presets Pack</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                        <a href="https://superprofile.bio/vp/flstudiopremiumpresetspack" target="_blank" rel="noopener" class="btn btn-dark btn-lg">
-                            <span>Get Presets Pack</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
 
-            </div>
+                        <!-- Slide 2: Logic Pro Premium Presets Pack -->
+                        <div class="carousel-slide" data-slide-index="1">
+                            <div class="split-feature-card">
+                                
+                                <!-- Left Column: Framed 16:9 Cover Image -->
+                                <div class="split-card-media-wrapper">
+                                    <div class="split-card-media">
+                                        <img src="Assets/Logic Pro Premium Presets Pack Cover.jpg" alt="Logic Pro Premium Presets Pack (1500+ Stock Plugins Presets)" class="split-media-img">
+                                    </div>
+                                </div>
 
-            <!-- Full Widescreen 2-Column Split Card 2: Logic Pro -->
-            <div class="split-feature-card reveal-on-scroll reveal-delay-2">
-                
-                <!-- Left Column: Framed 16:9 Cover Image -->
-                <div class="split-card-media-wrapper">
-                    <div class="split-card-media">
-                        <img src="Assets/Logic Pro Premium Presets Pack Cover.jpg" alt="Logic Pro Premium Presets Pack (1500+ Stock Plugins Presets)" class="split-media-img">
-                    </div>
-                </div>
+                                <!-- Right Column: Product Details & Action -->
+                                <div class="split-card-content">
+                                    <div class="course-meta-row">
+                                        <span class="meta-tag"><i class="fa-solid fa-sliders"></i> Logic Pro</span>
+                                        <span class="meta-tag"><i class="fa-solid fa-microphone-lines"></i> Vocal & Master</span>
+                                        <span class="meta-tag"><i class="fa-solid fa-bolt"></i> Instant Download</span>
+                                    </div>
 
-                <!-- Right Column: Product Details & Action -->
-                <div class="split-card-content">
-                    <div class="course-meta-row">
-                        <span class="meta-tag"><i class="fa-solid fa-sliders"></i> Logic Pro</span>
-                        <span class="meta-tag"><i class="fa-solid fa-microphone-lines"></i> Vocal & Master</span>
-                        <span class="meta-tag"><i class="fa-solid fa-bolt"></i> Instant Download</span>
-                    </div>
+                                    <h3 class="split-card-title">Logic Pro Premium Presets Pack</h3>
+                                    <p class="split-card-desc">
+                                        1500+ instant drag and drop channel strip presets for lead vocals, adlibs, background vocals, and mastering. 100% stock plugins only, zero expensive third party VSTs required.
+                                    </p>
 
-                    <h3 class="split-card-title">Logic Pro Premium Presets Pack</h3>
-                    <p class="split-card-desc">
-                        1500+ instant drag and drop channel strip presets for lead vocals, adlibs, background vocals, and mastering. 100% stock plugins only, zero expensive third party VSTs required.
-                    </p>
+                                    <div class="course-features-list">
+                                        <div class="feature-item highlight-feature"><i class="fa-solid fa-circle-check"></i> <span>Lead & Background Vocal Mixing Chains</span></div>
+                                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>Loud & Dynamic Streaming Master Chains</span></div>
+                                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>100% Stock Logic Pro Plugins Only</span></div>
+                                    </div>
 
-                    <div class="course-features-list">
-                        <div class="feature-item highlight-feature"><i class="fa-solid fa-circle-check"></i> <span>Lead & Background Vocal Mixing Chains</span></div>
-                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>Loud & Dynamic Streaming Master Chains</span></div>
-                        <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>100% Stock Logic Pro Plugins Only</span></div>
-                    </div>
+                                    <div class="split-card-footer">
+                                        <div class="price-group">
+                                            <span class="original-price">₹999</span>
+                                            <span class="current-price">₹199</span>
+                                        </div>
+                                        <a href="https://superprofile.bio/vp/logicpropremiumpresetspack" target="_blank" rel="noopener" class="btn btn-dark btn-lg">
+                                            <span>Get Presets Pack</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
 
-                    <div class="split-card-footer">
-                        <div class="price-group">
-                            <span class="original-price">₹999</span>
-                            <span class="current-price">₹199</span>
+                            </div>
                         </div>
-                        <a href="https://superprofile.bio/vp/logicpropremiumpresetspack" target="_blank" rel="noopener" class="btn btn-dark btn-lg">
-                            <span>Get Presets Pack</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+
                     </div>
                 </div>
+
+                <!-- Carousel Dots Navigation -->
+                <div class="carousel-dots-wrapper" id="carouselDotsWrapper"></div>
 
             </div>
         </div>
