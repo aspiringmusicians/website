@@ -2317,21 +2317,40 @@ button {
         text-align: center;
     }
 
+    .youtube-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
     .youtube-tag {
         justify-content: center;
     }
 
     .youtube-title {
         font-size: 1.75rem;
+        text-align: center;
+    }
+
+    .youtube-desc {
+        text-align: center;
     }
 
     .youtube-badges-row {
-        align-items: flex-start;
-        text-align: left;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .yt-badge-chip {
+        justify-content: center;
+        text-align: center;
     }
 
     .youtube-actions {
         justify-content: center;
+        width: 100%;
     }
 
     .youtube-actions .btn {
