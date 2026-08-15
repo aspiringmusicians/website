@@ -701,7 +701,7 @@ button {
     width: 100%;
     padding: 12px 42px 12px 44px;
     font-family: var(--font-body);
-    font-size: 0.92rem;
+    font-size: 16px !important;
     color: var(--text-primary);
     background-color: var(--bg-subtle);
     border: 1px solid var(--border-color);
@@ -2754,5 +2754,18 @@ button {
 
     .current-price {
         font-size: 1.3rem;
+    }
+}
+
+/* PREVENT MOBILE AUTOMATIC VIEWPORT INPUT ZOOM (iOS Safari & Chrome Android) */
+@media screen and (max-width: 768px) {
+    input,
+    select,
+    textarea,
+    .search-input,
+    .sidebar-search .search-input {
+        font-size: 16px !important;
+        -webkit-text-size-adjust: 100%;
+        touch-action: manipulation;
     }
 }
