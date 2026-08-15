@@ -341,8 +341,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            function updateSlidePosition() {
+            function updateSlidePosition(smooth = true) {
+                if (smooth) {
+                    producerCarouselTrack.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                } else {
+                    producerCarouselTrack.style.transition = 'none';
+                }
                 producerCarouselTrack.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+
                 if (carouselDotsWrapper) {
                     const dots = carouselDotsWrapper.querySelectorAll('.carousel-dot');
                     dots.forEach((dot, idx) => {
@@ -357,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function goToSlide(index) {
                 currentSlideIndex = (index + totalSlides) % totalSlides;
-                updateSlidePosition();
+                updateSlidePosition(true);
             }
 
             function nextSlide() {
@@ -385,123 +391,108 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             producerCarouselWrapper.addEventListener('mouseenter', stopAutoScroll);
-            producerCarouselWrapper.addEventListener('mouseleave', startAutoScroll);            // Comprehensive Mobile Touch & Pointer Swipe Engine
+            producerCarouselWrapper.addEventListener('mouseleave', startAutoScroll);
+
+            // 1:1 Live Finger Tracking Touch & Mouse Engine (60fps Silky Smooth)
             let startX = 0;
             let startY = 0;
             let currentX = 0;
             let currentY = 0;
             let isDragging = false;
-            let isHorizontalSwipe = false;
+            let isScrolling = undefined; // undefined = undecided, true = vertical page scroll, false = horizontal carousel swipe
+            let dragOffset = 0;
 
-            function handleSwipeStart(clientX, clientY) {
+            function onTouchStart(e) {
+                const touch = e.touches ? e.touches[0] : e;
                 isDragging = true;
-                isHorizontalSwipe = false;
-                startX = clientX;
-                startY = clientY;
-                currentX = clientX;
-                currentY = clientY;
+                isScrolling = undefined;
+                startX = touch.clientX;
+                startY = touch.clientY;
+                currentX = touch.clientX;
+                currentY = touch.clientY;
+                dragOffset = 0;
                 stopAutoScroll();
-                producerCarouselTrack.style.cursor = 'grabbing';
             }
 
-            function handleSwipeMove(clientX, clientY, e) {
+            function onTouchMove(e) {
                 if (!isDragging) return;
-                currentX = clientX;
-                currentY = clientY;
+                const touch = e.touches ? e.touches[0] : e;
+                currentX = touch.clientX;
+                currentY = touch.clientY;
 
-                const diffX = Math.abs(startX - currentX);
-                const diffY = Math.abs(startY - currentY);
+                const diffX = currentX - startX;
+                const diffY = currentY - startY;
 
-                if (diffX > 5 || diffY > 5) {
-                    if (diffX > diffY) {
-                        isHorizontalSwipe = true;
+                // Determine swipe direction on initial movement
+                if (typeof isScrolling === 'undefined') {
+                    if (Math.abs(diffX) > 5 || Math.abs(diffY) > 5) {
+                        isScrolling = Math.abs(diffY) > Math.abs(diffX);
                     }
                 }
 
-                if (isHorizontalSwipe && e && e.cancelable) {
-                    e.preventDefault();
+                // If horizontal swipe is active, perform 1:1 live track follow & prevent vertical page scroll
+                if (isScrolling === false) {
+                    if (e.cancelable) e.preventDefault();
+                    dragOffset = diffX;
+                    const trackWidth = producerCarouselTrack.offsetWidth || 1;
+                    const offsetPercent = (dragOffset / trackWidth) * 100;
+                    const currentPercent = -currentSlideIndex * 100 + offsetPercent;
+                    producerCarouselTrack.style.transition = 'none';
+                    producerCarouselTrack.style.transform = `translateX(${currentPercent}%)`;
                 }
             }
 
-            function handleSwipeEnd(e) {
+            function onTouchEnd(e) {
                 if (!isDragging) return;
                 isDragging = false;
-                producerCarouselTrack.style.cursor = 'grab';
 
-                const diffX = startX - currentX;
-                const threshold = 30; // Sensitive mobile threshold
+                if (isScrolling === false) {
+                    const threshold = 35; // Sensitive flick distance
+                    if (dragOffset < -threshold) {
+                        currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+                    } else if (dragOffset > threshold) {
+                        currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+                    }
 
-                if (Math.abs(diffX) > threshold) {
-                    if (e && e.target && diffX !== 0) {
+                    // Suppress click on link if user swiped
+                    if (Math.abs(dragOffset) > 10 && e && e.target) {
                         const link = e.target.closest('a');
                         if (link) {
-                            const suppressClick = (evt) => {
+                            const preventLinkClick = (evt) => {
                                 evt.preventDefault();
                                 evt.stopPropagation();
-                                link.removeEventListener('click', suppressClick, true);
+                                link.removeEventListener('click', preventLinkClick, true);
                             };
-                            link.addEventListener('click', suppressClick, true);
+                            link.addEventListener('click', preventLinkClick, true);
                         }
-                    }
-
-                    if (diffX > 0) {
-                        nextSlide();
-                    } else {
-                        prevSlide();
                     }
                 }
 
+                updateSlidePosition(true);
                 startAutoScroll();
             }
 
-            producerCarouselTrack.style.cursor = 'grab';
-            producerCarouselTrack.style.userSelect = 'none';
+            // Bind Touch Events with passive: false for touchmove to enable e.preventDefault()
+            producerCarouselTrack.addEventListener('touchstart', onTouchStart, { passive: true });
+            producerCarouselTrack.addEventListener('touchmove', onTouchMove, { passive: false });
+            producerCarouselTrack.addEventListener('touchend', onTouchEnd, { passive: true });
+            producerCarouselTrack.addEventListener('touchcancel', onTouchEnd, { passive: true });
 
-            // Touch Events (Mobile Native)
-            producerCarouselTrack.addEventListener('touchstart', (e) => {
-                if (e.touches && e.touches.length === 1) {
-                    handleSwipeStart(e.touches[0].clientX, e.touches[0].clientY);
-                }
-            }, { passive: true });
-
-            producerCarouselTrack.addEventListener('touchmove', (e) => {
-                if (e.touches && e.touches.length === 1) {
-                    handleSwipeMove(e.touches[0].clientX, e.touches[0].clientY, e);
-                }
-            }, { passive: false });
-
-            producerCarouselTrack.addEventListener('touchend', (e) => {
-                handleSwipeEnd(e);
-            }, { passive: true });
-
-            producerCarouselTrack.addEventListener('touchcancel', () => {
-                isDragging = false;
-                startAutoScroll();
-            });
-
-            // Pointer Events (Desktop & Stylus)
-            producerCarouselTrack.addEventListener('pointerdown', (e) => {
-                if (e.pointerType === 'touch') return;
-                handleSwipeStart(e.clientX, e.clientY);
-            });
-
-            producerCarouselTrack.addEventListener('pointermove', (e) => {
-                if (e.pointerType === 'touch') return;
-                handleSwipeMove(e.clientX, e.clientY, e);
-            });
-
-            producerCarouselTrack.addEventListener('pointerup', (e) => {
-                if (e.pointerType === 'touch') return;
-                handleSwipeEnd(e);
-            });
-
-            producerCarouselTrack.addEventListener('pointercancel', () => {
-                isDragging = false;
-                startAutoScroll();
+            // Bind Mouse Pointer Events for Desktop Dragging
+            producerCarouselTrack.addEventListener('mousedown', (e) => {
+                onTouchStart(e);
+                const onMouseMove = (evt) => onTouchMove(evt);
+                const onMouseUp = (evt) => {
+                    onTouchEnd(evt);
+                    window.removeEventListener('mousemove', onMouseMove);
+                    window.removeEventListener('mouseup', onMouseUp);
+                };
+                window.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('mouseup', onMouseUp);
             });
 
             // Initialize Position & Start Auto Scroll
-            updateSlidePosition();
+            updateSlidePosition(false);
             startAutoScroll();
         }
     }

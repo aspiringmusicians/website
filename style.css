@@ -1652,27 +1652,37 @@ button {
     position: relative;
     width: 100%;
     margin-top: 12px;
-    touch-action: pan-y;
+    touch-action: pan-y !important;
 }
 
 .producer-carousel-track-container {
     overflow: hidden;
     width: 100%;
     border-radius: var(--radius-lg);
-    touch-action: pan-y;
+    touch-action: pan-y !important;
 }
 
 .producer-carousel-track {
     display: flex;
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     width: 100%;
-    touch-action: pan-y;
+    touch-action: pan-y !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
 }
 
 .carousel-slide {
     min-width: 100%;
     box-sizing: border-box;
-    touch-action: pan-y;
+    touch-action: pan-y !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+.producer-carousel-track img {
+    pointer-events: none !important;
+    -webkit-user-drag: none !important;
+    user-select: none !important;
 }
 
 .carousel-arrow {
