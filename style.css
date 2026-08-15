@@ -1391,9 +1391,9 @@ button {
 /* ABOUT & COMMUNITY STYLES */
 .about-section-minimal {
     padding: 95px 24px;
-    background-color: var(--bg-subtle);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-main);
+    border-top: none;
+    border-bottom: none;
 }
 
 .about-container-minimal { max-width: 1200px; margin: 0 auto; }
@@ -1405,7 +1405,7 @@ button {
 .about-visual-frame { display: flex; justify-content: center; }
 
 .mentor-profile-card {
-    background-color: var(--bg-main);
+    background-color: var(--bg-subtle);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: 40px 32px;
