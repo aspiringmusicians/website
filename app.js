@@ -387,27 +387,33 @@ document.addEventListener('DOMContentLoaded', () => {
             producerCarouselWrapper.addEventListener('mouseenter', stopAutoScroll);
             producerCarouselWrapper.addEventListener('mouseleave', startAutoScroll);
 
-            // Mobile Touch Swipe Support
+            // Comprehensive Pointer & Touch Drag / Swipe Support (Mobile & Desktop)
             let startX = 0;
             let currentX = 0;
             let isDragging = false;
 
-            producerCarouselTrack.addEventListener('touchstart', (e) => {
+            function handleDragStart(clientX) {
                 isDragging = true;
-                startX = e.touches[0].clientX;
+                startX = clientX;
+                currentX = clientX;
                 stopAutoScroll();
-            }, { passive: true });
+                producerCarouselTrack.style.cursor = 'grabbing';
+            }
 
-            producerCarouselTrack.addEventListener('touchmove', (e) => {
+            function handleDragMove(clientX) {
                 if (!isDragging) return;
-                currentX = e.touches[0].clientX;
-            }, { passive: true });
+                currentX = clientX;
+            }
 
-            producerCarouselTrack.addEventListener('touchend', () => {
+            function handleDragEnd() {
                 if (!isDragging) return;
                 isDragging = false;
+                producerCarouselTrack.style.cursor = 'grab';
+                
                 const diffX = startX - currentX;
-                if (Math.abs(diffX) > 50) {
+                const threshold = 40; // Effortless responsive swipe threshold
+                
+                if (Math.abs(diffX) > threshold) {
                     if (diffX > 0) {
                         nextSlide();
                     } else {
@@ -415,6 +421,45 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
                 startAutoScroll();
+            }
+
+            producerCarouselTrack.style.cursor = 'grab';
+            producerCarouselTrack.style.userSelect = 'none';
+
+            // Pointer Events (Unified Mouse, Touch & Pen Swiping)
+            producerCarouselTrack.addEventListener('pointerdown', (e) => {
+                if (e.target.closest('a') || e.target.closest('button')) return;
+                handleDragStart(e.clientX);
+            });
+
+            producerCarouselTrack.addEventListener('pointermove', (e) => {
+                handleDragMove(e.clientX);
+            });
+
+            producerCarouselTrack.addEventListener('pointerup', () => {
+                handleDragEnd();
+            });
+
+            producerCarouselTrack.addEventListener('pointerleave', () => {
+                if (isDragging) handleDragEnd();
+            });
+
+            // Touch Events Fallback
+            producerCarouselTrack.addEventListener('touchstart', (e) => {
+                if (e.touches && e.touches.length > 0) {
+                    if (e.target.closest('a') || e.target.closest('button')) return;
+                    handleDragStart(e.touches[0].clientX);
+                }
+            }, { passive: true });
+
+            producerCarouselTrack.addEventListener('touchmove', (e) => {
+                if (e.touches && e.touches.length > 0) {
+                    handleDragMove(e.touches[0].clientX);
+                }
+            }, { passive: true });
+
+            producerCarouselTrack.addEventListener('touchend', () => {
+                handleDragEnd();
             });
 
             // Initialize Position & Start Auto Scroll
