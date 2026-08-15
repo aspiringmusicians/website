@@ -656,8 +656,9 @@ button {
 
 /* CATALOG SEARCH & FILTER TOOLBAR */
 .catalog-toolbar-section {
-    padding: 40px 24px 20px 24px;
-    background-color: var(--bg-main);
+    padding: 40px 24px 30px 24px;
+    background-color: var(--bg-subtle);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .catalog-toolbar-section.page-top-padding {
@@ -1466,12 +1467,16 @@ button {
 .value-chip { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500; color: var(--text-primary); }
 .value-chip i { color: var(--accent-blue); font-size: 0.85rem; background-color: rgba(37, 99, 235, 0.1); padding: 4px; border-radius: 50%; }
 
-/* COMMUNITY SECTION */
-.community-section { padding: 90px 24px; background-color: var(--bg-main); }
+.community-section { 
+    padding: 95px 24px; 
+    background-color: var(--bg-subtle); 
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
 .community-container { max-width: 1100px; margin: 0 auto; }
 
 .community-card {
-    background-color: var(--bg-card);
+    background-color: var(--bg-main);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: 50px 44px;
@@ -1538,8 +1543,9 @@ button {
 /* FEATURED MASTERCLASS HOMEPAGE SECTION */
 .featured-course-section {
     padding: 95px 24px;
-    background-color: var(--bg-main);
+    background-color: var(--bg-subtle);
     border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .featured-course-container,
@@ -1589,6 +1595,10 @@ button {
     align-items: center;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
     transition: var(--transition);
+}
+
+#presets-pack .split-feature-card {
+    background-color: var(--bg-subtle);
 }
 
 .split-feature-card:hover {
@@ -1673,6 +1683,7 @@ button {
     padding: 95px 24px;
     background-color: var(--bg-subtle);
     border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .mentorship-meta-row {
