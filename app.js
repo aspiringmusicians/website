@@ -385,81 +385,119 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             producerCarouselWrapper.addEventListener('mouseenter', stopAutoScroll);
-            producerCarouselWrapper.addEventListener('mouseleave', startAutoScroll);
-
-            // Comprehensive Pointer & Touch Drag / Swipe Support (Mobile & Desktop)
+            producerCarouselWrapper.addEventListener('mouseleave', startAutoScroll);            // Comprehensive Mobile Touch & Pointer Swipe Engine
             let startX = 0;
+            let startY = 0;
             let currentX = 0;
+            let currentY = 0;
             let isDragging = false;
+            let isHorizontalSwipe = false;
 
-            function handleDragStart(clientX) {
+            function handleSwipeStart(clientX, clientY) {
                 isDragging = true;
+                isHorizontalSwipe = false;
                 startX = clientX;
+                startY = clientY;
                 currentX = clientX;
+                currentY = clientY;
                 stopAutoScroll();
                 producerCarouselTrack.style.cursor = 'grabbing';
             }
 
-            function handleDragMove(clientX) {
+            function handleSwipeMove(clientX, clientY, e) {
                 if (!isDragging) return;
                 currentX = clientX;
+                currentY = clientY;
+
+                const diffX = Math.abs(startX - currentX);
+                const diffY = Math.abs(startY - currentY);
+
+                if (diffX > 5 || diffY > 5) {
+                    if (diffX > diffY) {
+                        isHorizontalSwipe = true;
+                    }
+                }
+
+                if (isHorizontalSwipe && e && e.cancelable) {
+                    e.preventDefault();
+                }
             }
 
-            function handleDragEnd() {
+            function handleSwipeEnd(e) {
                 if (!isDragging) return;
                 isDragging = false;
                 producerCarouselTrack.style.cursor = 'grab';
-                
+
                 const diffX = startX - currentX;
-                const threshold = 40; // Effortless responsive swipe threshold
-                
+                const threshold = 30; // Sensitive mobile threshold
+
                 if (Math.abs(diffX) > threshold) {
+                    if (e && e.target && diffX !== 0) {
+                        const link = e.target.closest('a');
+                        if (link) {
+                            const suppressClick = (evt) => {
+                                evt.preventDefault();
+                                evt.stopPropagation();
+                                link.removeEventListener('click', suppressClick, true);
+                            };
+                            link.addEventListener('click', suppressClick, true);
+                        }
+                    }
+
                     if (diffX > 0) {
                         nextSlide();
                     } else {
                         prevSlide();
                     }
                 }
+
                 startAutoScroll();
             }
 
             producerCarouselTrack.style.cursor = 'grab';
             producerCarouselTrack.style.userSelect = 'none';
 
-            // Pointer Events (Unified Mouse, Touch & Pen Swiping)
-            producerCarouselTrack.addEventListener('pointerdown', (e) => {
-                if (e.target.closest('a') || e.target.closest('button')) return;
-                handleDragStart(e.clientX);
-            });
-
-            producerCarouselTrack.addEventListener('pointermove', (e) => {
-                handleDragMove(e.clientX);
-            });
-
-            producerCarouselTrack.addEventListener('pointerup', () => {
-                handleDragEnd();
-            });
-
-            producerCarouselTrack.addEventListener('pointerleave', () => {
-                if (isDragging) handleDragEnd();
-            });
-
-            // Touch Events Fallback
+            // Touch Events (Mobile Native)
             producerCarouselTrack.addEventListener('touchstart', (e) => {
-                if (e.touches && e.touches.length > 0) {
-                    if (e.target.closest('a') || e.target.closest('button')) return;
-                    handleDragStart(e.touches[0].clientX);
+                if (e.touches && e.touches.length === 1) {
+                    handleSwipeStart(e.touches[0].clientX, e.touches[0].clientY);
                 }
             }, { passive: true });
 
             producerCarouselTrack.addEventListener('touchmove', (e) => {
-                if (e.touches && e.touches.length > 0) {
-                    handleDragMove(e.touches[0].clientX);
+                if (e.touches && e.touches.length === 1) {
+                    handleSwipeMove(e.touches[0].clientX, e.touches[0].clientY, e);
                 }
+            }, { passive: false });
+
+            producerCarouselTrack.addEventListener('touchend', (e) => {
+                handleSwipeEnd(e);
             }, { passive: true });
 
-            producerCarouselTrack.addEventListener('touchend', () => {
-                handleDragEnd();
+            producerCarouselTrack.addEventListener('touchcancel', () => {
+                isDragging = false;
+                startAutoScroll();
+            });
+
+            // Pointer Events (Desktop & Stylus)
+            producerCarouselTrack.addEventListener('pointerdown', (e) => {
+                if (e.pointerType === 'touch') return;
+                handleSwipeStart(e.clientX, e.clientY);
+            });
+
+            producerCarouselTrack.addEventListener('pointermove', (e) => {
+                if (e.pointerType === 'touch') return;
+                handleSwipeMove(e.clientX, e.clientY, e);
+            });
+
+            producerCarouselTrack.addEventListener('pointerup', (e) => {
+                if (e.pointerType === 'touch') return;
+                handleSwipeEnd(e);
+            });
+
+            producerCarouselTrack.addEventListener('pointercancel', () => {
+                isDragging = false;
+                startAutoScroll();
             });
 
             // Initialize Position & Start Auto Scroll
