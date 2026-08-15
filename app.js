@@ -17,25 +17,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Active Section Scroll Highlight logic
-        let currentSectionId = '';
-        const scrollPosition = window.scrollY + 200;
+        const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || window.location.pathname === '';
+        
+        if (isHomePage) {
+            let currentSectionId = '';
+            const scrollPosition = window.scrollY + 200;
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
-
-        if (currentSectionId && window.location.pathname === '/') {
-            navLinks.forEach(link => {
-                if (link.getAttribute('data-nav') === currentSectionId) {
-                    link.classList.add('active');
-                } else if (link.getAttribute('data-nav') !== 'courses' && link.getAttribute('data-nav') !== 'shop' && link.getAttribute('data-nav') !== 'mentorship') {
-                    link.classList.remove('active');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = section.getAttribute('id');
                 }
             });
+
+            if (currentSectionId) {
+                navLinks.forEach(link => {
+                    if (link.getAttribute('data-nav') === currentSectionId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
         }
     });
 
