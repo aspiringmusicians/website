@@ -184,13 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardCat = (card.getAttribute('data-category') || '').toLowerCase().trim();
             const targetCat = (activeCategory || 'all').toLowerCase().trim();
 
-            // Ultra-flexible Category Matching
+            // Exact Multi-Tag Category Matching
             let matchesCategory = false;
             if (targetCat === 'all' || targetCat === '') {
                 matchesCategory = true;
             } else {
                 const cardTags = cardCat.split(/\s+/);
-                matchesCategory = cardTags.some(tag => tag === targetCat || tag.includes(targetCat) || targetCat.includes(tag));
+                matchesCategory = cardTags.includes(targetCat);
             }
 
             // Ultra-flexible Query Matching
