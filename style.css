@@ -2264,12 +2264,12 @@ button {
     .footer-col {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
     }
 
     .footer-heading {
-        text-align: center;
+        text-align: left;
         margin-bottom: 14px;
         font-size: 0.82rem;
         letter-spacing: 0.5px;
@@ -2278,8 +2278,8 @@ button {
     .footer-nav-list {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
         gap: 10px;
         width: 100%;
     }
@@ -2287,9 +2287,9 @@ button {
     .footer-nav-list a {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         font-size: 0.86rem;
-        text-align: center;
+        text-align: left;
     }
 
     .footer-bottom-bar {
